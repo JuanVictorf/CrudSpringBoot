@@ -1,13 +1,14 @@
 package com.mvteste.models;
 
-
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.DBRef;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.util.ArrayList;
 
-// teste
+
 @Setter
 @Getter
 @Document
@@ -17,6 +18,8 @@ public class Estabelecimento {
     private String nome;
     private String endereco;
     private String telefone;
+    @DBRef
+    private ArrayList<Profissional> profissionais = new ArrayList<>();
 
     public String getId() {
         return id;
